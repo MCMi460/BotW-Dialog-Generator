@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BotW Dialog Generator</title>
+  </head>
+
+  <body>
+    <h1>Breath of the Wild Dialog Generator</h1>
+    <p>Note: Using < b >"TEXT"< /b > will highlight your text.</p>
+    <input type = 'text' placeholder = 'Enter the name you would like here!' id = 'name'>
+    <textarea placeholder = 'Enter the text you want here!' id = 'text'></textarea>
+
+    <div>
+      <input type = 'checkbox' id = 'center'><label for = 'center'>Center text</label>
+    </div>
+
+    <button onclick = 'loadResult();'>Generate!</button>
+
+    <p style = 'position: absolute; bottom: 0%;'>I did not code most of this. Please see <a href = 'README.md'>README.md</a> for more information about Michael Hansen</p>
+  </body>
+
+  <script>
+  for (const x of document.querySelectorAll('input')) {
+    x.value = '';
+  }
+  for (const x of document.querySelectorAll('textarea')) {
+    x.value = '';
+  }
+
+  function loadResult() {
+    var name = document.getElementById('name').value;
+    var text = document.getElementById('text').value.replaceAll('\n', '<br>').replaceAll('<b>', '<span class = "zelda--highlight">').replaceAll('</b>', '</span>');
+    if (document.getElementById('center').checked) {
+      text = '<center>' + text + '</center>';
+    }
+    window.location.href = 'result.html' + '?' + 'name=' + name + '&' + 'text=' + text;
+  }
+  </script>
+
+  <style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #00b140;
+  }
+
+  * {
+    color: #fff;
+    margin: 10px;
+    font-size: 2vh;
+    font-family: 'Calistoga';
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 4vh;
+  }
+
+  input, textarea {
+    background-color: #1c1c1c;
+    border: 0;
+    text-align: center;
+    word-wrap: normal;
+    overflow: visible;
+    height: 5vh;
+    width: 80vw;
+  }
+
+  button {
+    background-color: #264;
+    border: 0;
+    border-radius: 80px;
+    height: 5vh;
+    width: 10vw;
+    cursor: pointer;
+  }
+
+  div input {
+    height: 2vh;
+    width: 2vh;
+  } div label {
+    text-decoration: none;
+  }
+
+  #name {
+    width: 40vw;
+  }
+
+  #text {
+    height: 10vh;
+  }
+
+  </style>
+
+</html>

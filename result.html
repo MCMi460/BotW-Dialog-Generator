@@ -1,0 +1,175 @@
+<!-- Complete credit to Michael Hansen for this code, I only made minor changes to the size for accuracy purposes -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Result</title>
+  </head>
+  <!-- HTML -->
+  <body>
+    <div class = 'zelda--wrap'>
+      <div class = 'zelda--dialog--wrap'>
+        <p class = 'zelda--name' id = 'name'>
+
+        </p>
+        <div class = 'zelda--dialog--inner'>
+          <p class = 'zelda--dialog--text' id = 'text'>
+
+          </p>
+        </div>
+        <div class = 'zelda--triangle'></div>
+      </div>
+    </div>
+  </body>
+  <!-- CSS -->
+  <style>
+
+  /* Complete credit to Michael Hansen for this code, I only made minor changes to the size for accuracy purposes */
+  @import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 1080px;
+    width: 1920px;
+    background: #00b140;
+  }
+
+  h1 {
+    font-family: 'Calistoga', cursive;
+    margin-bottom: 80px;
+    font-size: 3em;
+  }
+
+  .zelda--highlight {
+    color: #3de2c8;
+  }
+
+  .zelda--dialog--wrap {
+    background: #1b1a1a;
+    width: 888px;
+    height: 185px;
+    top: 80vh;
+    border-radius: calc(180px / 1.875);
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+      0 100px 80px rgba(0, 0, 0, 0.07);
+  }
+
+  .zelda--dialog--wrap:before,
+  .zelda--dialog--wrap:after {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    box-shadow: -20px 0 0px -15px #bebebe;
+    content: '';
+    position: absolute;
+    top: calc(25px + (185px - 164px));
+  }
+
+  .zelda--dialog--wrap:before {
+    left: 20px;
+  }
+
+  .zelda--dialog--wrap:after {
+    right: 20px;
+    transform: rotate(180deg);
+  }
+
+  .zelda--dialog--inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .zelda--dialog--inner:before,
+  .zelda--dialog--inner:after {
+    height: 5px;
+    width: 5px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 0px 5px #1b1a1a;
+    background: #bebebe;
+    position: absolute;
+    content: '';
+    top: calc(72px + (185px - 164px));
+    z-index: 2;
+  }
+
+  .zelda--dialog--inner:before {
+    left: 16px;
+  }
+
+  .zelda--dialog--inner:after {
+    right: 16px;
+  }
+
+  .zelda--name {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px black, 0px 0px 4px black, 0px 0px 6px black;
+    margin-left: 10%;
+    position: absolute;
+    top: -35px;
+  }
+
+  .zelda--dialog--text {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 66.666%;
+    margin: 0;
+  }
+
+  .zelda--triangle {
+    width: 30px;
+    height: 20px;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    background: #bebebe;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    animation: float 3.4s infinite;
+  }
+
+  .zelda--triangle:before {
+    content: '';
+    width: 18px;
+    height: 12px;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    background: #1b1a1a;
+    position: absolute;
+    right: 6px;
+    top: 3px;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    24% {
+      transform: translateY(-6.56px);
+    }
+    40% {
+      transform: translateY(6.28px);
+    }
+   66% {
+      transform: translateY(-2.56px);
+    }
+  }
+
+  </style>
+  <!-- JavaScript -->
+  <script>
+  var url = new URL(window.location.href);
+  var text = url.searchParams.get('text'); var name = url.searchParams.get('name');
+  document.getElementById('text').innerHTML = text; document.getElementById('name').textContent = name;
+  </script>
+</html>
