@@ -12,6 +12,7 @@
 
     <div>
       <input type = 'checkbox' id = 'center'><label for = 'center'>Center text</label>
+      <input type = 'checkbox' id = 'moving'><label for = 'moving'>Triangle moves</label>
     </div>
 
     <button onclick = 'loadResult();'>Generate!</button>
@@ -22,6 +23,7 @@
   <script>
   for (const x of document.querySelectorAll('input')) {
     x.value = '';
+    x.checked = false;
   }
   for (const x of document.querySelectorAll('textarea')) {
     x.value = '';
@@ -30,10 +32,12 @@
   function loadResult() {
     var name = document.getElementById('name').value;
     var text = document.getElementById('text').value.replaceAll('\n', '<br>').replaceAll('<b>', '<span class = "zelda--highlight">').replaceAll('</b>', '</span>');
+    var options = '';
     if (document.getElementById('center').checked) {
       text = '<center>' + text + '</center>';
     }
-    window.location.href = 'result.html' + '?' + 'name=' + name + '&' + 'text=' + text;
+    options = options + `&moving=${document.getElementById('moving').checked}`
+    window.location.href = 'result.html' + '?' + 'name=' + name + '&' + 'text=' + text + options;
   }
   </script>
 

@@ -26,6 +26,10 @@
   /* Complete credit to Michael Hansen for this code, I only made minor changes to the size for accuracy purposes */
   @import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
 
+  :root {
+    --multiplier: 0;
+  }
+
   body {
     display: flex;
     flex-direction: column;
@@ -122,46 +126,46 @@
 
   .zelda--dialog--text {
     color: white;
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
     width: 66.666%;
     margin: 0;
   }
 
   .zelda--triangle {
-    width: 30px;
-    height: 20px;
+    width: 40px;
+    height: 26px;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
     background: #bebebe;
     position: absolute;
     bottom: -10px;
-    left: 50%;
+    left: 48%;
     animation: float 3.4s infinite;
   }
 
   .zelda--triangle:before {
     content: '';
-    width: 18px;
-    height: 12px;
+    width: 24px;
+    height: 15px;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
     background: #1b1a1a;
     position: absolute;
-    right: 6px;
-    top: 3px;
+    right: 8px;
+    top: 4px;
   }
 
   @keyframes float {
     0% {
-      transform: translateY(0px);
+      transform: translateY(calc(0px * var(--multiplier)));
     }
     24% {
-      transform: translateY(-6.56px);
+      transform: translateY(calc(-6.56px * var(--multiplier)));
     }
     40% {
-      transform: translateY(6.28px);
+      transform: translateY(calc(6.28px * var(--multiplier)));
     }
    66% {
-      transform: translateY(-2.56px);
+      transform: translateY(calc(-2.56px * var(--multiplier)));
     }
   }
 
@@ -171,5 +175,8 @@
   var url = new URL(window.location.href);
   var text = url.searchParams.get('text'); var name = url.searchParams.get('name');
   document.getElementById('text').innerHTML = text; document.getElementById('name').textContent = name;
+  if (url.searchParams.get('moving') == 'true') {
+    document.documentElement.style.setProperty('--multiplier', '1');
+  }
   </script>
 </html>
