@@ -6,7 +6,7 @@
 
   <body>
     <h1>Breath of the Wild Dialog Generator</h1>
-    <p>Note: Using < b >"TEXT"< /b > will highlight your text.</p>
+    <p>Note: Using <code>< b >"TEXT"< /b ></code> will highlight your text.</p>
     <input type = 'text' placeholder = 'Enter the name you would like here!' id = 'name'>
     <textarea placeholder = 'Enter the text you want here!' id = 'text'></textarea>
 
@@ -17,6 +17,7 @@
 
     <button onclick = 'loadResult();'>Generate!</button>
 
+    <p style = 'position: absolute; bottom: 5%;'><code>Sys_Talk_Next.wav</code> and <code>Sys_Talk_End.wav</code> are the dialog sound effects for BotW. You can download them online.</p>
     <p style = 'position: absolute; bottom: 0%;'>I did not code most of this. Please see <a href = 'README.md'>README.md</a> for more information about Michael Hansen</p>
   </body>
 
@@ -97,6 +98,12 @@
 
   #text {
     height: 10vh;
+  }
+
+  code {
+    background-color: #1c1c1c;
+    font: sans-serif;
+    padding: 2px;
   }
 
   </style>
